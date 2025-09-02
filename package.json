@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "scripts": {
+    "web": "npm --prefix apps/web start"
+  }
+}
