@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "web": "npm --prefix apps/web start"
+    "web": "npm --prefix apps/web start",
+    "api": "npm --prefix apps/api run start:dev"
   }
 }
