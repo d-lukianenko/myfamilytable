@@ -22,7 +22,7 @@ Most recipe websites are cluttered with ads, slow, and frustrating to use.
 
 ## 📸 Preview
 
-<img src="docs/preview.png" alt="My Family Table mobile preview" width="300"/>
+<img src="apps/web/docs/preview.png" alt="My Family Table mobile preview" width="300"/>
 
 ---
 
