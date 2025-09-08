@@ -20,6 +20,14 @@ Most recipe websites are cluttered with ads, slow, and frustrating to use.
 
 ---
 
+## 📸 Preview
+
+<p align="center">
+  <img src="docs/mobile-preview.png" alt="My Family Table mobile preview" width="300"/>
+</p>
+
+---
+
 ## ✨ Features
 
 - ✅ **Angular 20 frontend** with Tailwind CSS v4  
