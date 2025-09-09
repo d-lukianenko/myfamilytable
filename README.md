@@ -3,7 +3,7 @@
 **Nutritious. Tasty. Kid-approved.**  
 A clean, ad-free recipe website for families, built with **Angular 20** and **NestJS**.  
 
-🔗 Live demo: [myfamilytable.app](https://www.myfamilytable.app)
+🔗 Live demo: [https://myfamilytable.app](https://myfamilytable.app)
 
 ---
 
@@ -28,12 +28,18 @@ Most recipe websites are cluttered with ads, slow, and frustrating to use.
 
 ## ✨ Features
 
-- ✅ **Angular 20 frontend** with Tailwind CSS v4  
-- ✅ **Custom domain + SSL** → [myfamilytable.app](https://www.myfamilytable.app)  
-- 🚧 **Recipe list** (core functionality, in progress)  
-- 🚧 **Improved kid-friendly UI** (planned)  
-- 🚧 **NestJS API backend** (planned)  
-- 🚧 **AI “What’s in my fridge?” ingredient search** (planned)  
+### ✅ Shipped
+- **Angular 20** frontend with **Tailwind CSS v4** (base UI), deployed on **Vercel**
+- **Custom domain + SSL** → [https://myfamilytable.app](https://myfamilytable.app)
+- **NestJS API backend** (CORS/Helmet, hosted on **Render**)
+
+### 🚧 In Progress
+- **Recipe List (core)**: responsive card grid + loading skeletons + error/empty states
+- **Design polish**: header/footer, accessible focus styles, icons
+
+### 🔜 Planned
+- **Recipe Detail Page** (ingredients, steps, kid tips)
+- **“What’s in my fridge?”** ingredient search (client filter → API → AI rerank)
 
 ---
 
@@ -43,5 +49,5 @@ Most recipe websites are cluttered with ads, slow, and frustrating to use.
 - **Backend:** NestJS (API under development)  
 - **Language:** TypeScript (Node.js 20)  
 - **Styling/Formatting:** Prettier, ESLint  
-- **Hosting:** Vercel (frontend), backend hosting TBD  
+- **Hosting:** Vercel (frontend), Render (backend)
 
