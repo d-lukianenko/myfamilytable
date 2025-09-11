@@ -1,13 +1,11 @@
-import { Component, signal } from '@angular/core';
-import { RecipesComponent } from '../recipes/recipes.component';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
-  standalone: true,
   selector: 'app-root',
-  imports: [RecipesComponent],
+  standalone: true,
+  imports: [RouterOutlet, NavbarComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
 })
-export class AppComponent {
-  protected readonly title = signal('myfamilytable');
-}
+export class AppComponent {}
