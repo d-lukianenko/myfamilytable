@@ -36,6 +36,8 @@ Most recipe websites are cluttered with ads, slow, and frustrating to use.
 ### 🚧 In Progress
 - **Recipe List (core)**: responsive card grid + loading skeletons + error/empty states
 - **Design polish**: header/footer, accessible focus styles, icons
+- Setting up database (PostgreSQL + Prisma)
+- Storing recipe images via Cloudinary (URLs in DB)
 
 ### 🔜 Planned
 - **Recipe Detail Page** (ingredients, steps, kid tips)
