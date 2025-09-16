@@ -40,3 +40,12 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Ignore local env files with secrets
+*.local
+.env
+.env.development.local
+.env.production.local
+apps/api/prisma/.env
+
+/generated/prisma

@@ -10,6 +10,7 @@ import { HealthController } from './health.controller';
     RecipesModule,
     ConfigModule.forRoot({
       isGlobal: true,
+      envFilePath: ['.env.development.local', '.env'],
     }),
   ],
   controllers: [AppController, HealthController],
