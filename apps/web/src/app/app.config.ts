@@ -5,13 +5,14 @@ import {
   provideZoneChangeDetection,
   importProvidersFrom,
 } from '@angular/core';
-import { AppRoutingModule } from './app-routing.module';
+import { provideRouter } from '@angular/router';
+import { routes } from './routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideHttpClient(),
-    importProvidersFrom(AppRoutingModule),
+    provideRouter(routes),
   ],
 };
