@@ -1,7 +1,14 @@
 {
   "private": true,
+  "workspaces": ["apps/*"],
+  "engines": { "node": ">=20 <21" },
   "scripts": {
+    "api": "npm --prefix apps/api run start:dev",
+    "api:build": "npm run -w apps/api build",
+    "api:start": "npm run -w apps/api start:prod",
+    "db:migrate:deploy": "npm run -w apps/api prisma:migrate:deploy",
+
     "web": "npm --prefix apps/web start",
-    "api": "npm --prefix apps/api run start:dev"
+    "web:build": "npm run -w apps/web build"
   }
 }
