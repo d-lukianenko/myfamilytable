@@ -1,8 +1,10 @@
 import { Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, catchError, finalize, tap, throwError } from 'rxjs';
+import { Observable, map, catchError, finalize, tap, throwError } from 'rxjs';
 import { Recipe } from './models/recipe.model';
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
+import { mapApiRecipe } from './repice.mappers';
+import { ApiRecipe } from './models/recipe.api';
 
 @Injectable({ providedIn: 'root' })
 export class RecipesService {
@@ -22,11 +24,11 @@ export class RecipesService {
     this._loading.set(true);
     this._error.set(null);
 
-    return this.http.get<Recipe[]>(this.baseUrl).pipe(
-      tap((data) => this._recipes.set(data)),
+    return this.http.get<ApiRecipe[]>(this.baseUrl).pipe(
+      map((items) => items.map(mapApiRecipe)),
+      tap((recipes) => this._recipes.set(recipes)),
       catchError((err) => {
-        console.error('Failed to fetch recipes', err);
-        this._error.set('Failed to fetch recipes');
+        this._error.set(err?.error?.message ?? 'Failed to load recipes');
         return throwError(() => err);
       }),
       finalize(() => this._loading.set(false))
