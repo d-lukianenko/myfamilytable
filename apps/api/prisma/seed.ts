@@ -8,8 +8,33 @@ async function main() {
       {
         title: 'Oat Kefir Crepes',
         description:
-          'These crepes were inspired by Ukrainian mlyntsi - my version with kefir and oat flour',
+          'Ukrainian mlyntsi-style crepes with kefir and a wholesome oat twist.',
+        imagePublicId: 'oat-kefir-crepes',
+        ingredients: [],
+        steps: [],
+        tips: [],
+        tags: [],
       },
+      {
+        title: 'Banana Strawberry Smoothie',
+        description:
+          'A fruity, kid-friendly snack that is ready in minutes.',
+        imagePublicId: 'banana-strawberry-smoothie',
+        ingredients: [],
+        steps: [],
+        tips: [],
+        tags: [],
+      },
+      {
+        title: 'Creamy Mushroom Quiche',
+        description:
+          'A cozy bake for when you have a bit of extra time.',
+        imagePublicId: 'creamy-mushroom-quiche',
+        ingredients: [],
+        steps: [],
+        tips: [],
+        tags: [],
+      }
     ],
   });
   const count = await prisma.recipe.count();

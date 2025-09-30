@@ -8,14 +8,14 @@ datasource db {
 }
 
 model Recipe {
-  id          String    @id @default(cuid())
-  title       String
-  description String
-  imageUrl    String?
-  ingredients String[]  @db.Text @default([])
-  steps       String[]  @db.Text @default([])
-  tips        String?
-  tags        String[]  @default([])
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
+  id            String    @id @default(cuid())
+  title         String
+  description   String
+  imagePublicId String           
+  ingredients   String[]  @default([])
+  steps         String[]  @default([])
+  tips          String[]  @default([])
+  tags          String[]  @default([])
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }

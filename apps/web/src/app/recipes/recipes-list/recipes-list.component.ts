@@ -1,15 +1,15 @@
 import { Component, inject, Signal } from '@angular/core';
-import { RecipesService } from './recipes.service';
-import { CommonModule } from '@angular/common';
-import { Recipe } from './models/recipe.model';
+import { RecipeCardComponent } from '../recipe-card/recipe-card.component';
+import { RecipesService } from '../recipes.service';
+import { Recipe } from '../models/recipe.model';
 
 @Component({
-  imports: [CommonModule],
-  selector: 'app-recipes',
+  selector: 'app-recipes-list',
   standalone: true,
-  templateUrl: './recipes.component.html',
+  templateUrl: './recipes-list.comopent.html',
+  imports: [RecipeCardComponent],
 })
-export class RecipesComponent {
+export class RecipesListComponent {
   private recipesService = inject(RecipesService);
 
   recipes: Signal<Recipe[]> = this.recipesService.recipes;
