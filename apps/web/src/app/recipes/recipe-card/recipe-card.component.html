@@ -1,4 +1,4 @@
-<article
+<a [routerLink]="['/recipes', recipe.id]"
   class="group flex h-full flex-col overflow-hidden rounded-3xl bg-white ring-1 ring-gray-200/70 shadow-sm transition hover:shadow-md cursor-pointer">
   <div class="relative aspect-[5/3] bg-gray-100">
     <img [src]="recipe.imageUrl" [alt]="recipe.imageAlt || recipe.title" loading="lazy" decoding="async"
@@ -14,4 +14,4 @@
       {{ recipe.description }}
     </p>
   </div>
-</article>
+</a>

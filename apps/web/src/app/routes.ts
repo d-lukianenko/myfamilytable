@@ -1,11 +1,19 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
+    redirectTo: 'recipes',
+  },
+  {
+    path: 'recipes',
+    pathMatch: 'full',
     loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent),
   },
-  { path: '**', redirectTo: '' },
+  {
+    path: 'recipes/:id',
+    loadComponent: () => import('./recipes/recipe-detail/recipe-detail.component').then(m => m.RecipeDetailComponent),
+  },
+  { path: '**', redirectTo: '' }
 ];
