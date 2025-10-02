@@ -7,5 +7,6 @@ export function toRecipeListDto(r: Recipe): RecipeListDto {
     title: r.title,
     description: r.description,
     imagePublicId: r.imagePublicId,
+    tags: r.tags
   };
 }

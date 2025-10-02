@@ -9,5 +9,6 @@ export function mapApiRecipe(r: ApiRecipe): Recipe {
     description: r.description,
     imageUrl: cldUrl(r.imagePublicId),
     imageAlt: r.title,
+    tags: r.tags
   };
 }

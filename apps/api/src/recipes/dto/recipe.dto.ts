@@ -12,6 +12,10 @@ export class RecipeListDto {
 
   @IsString()
   imagePublicId: string;
+
+  @IsArray()
+  @IsString({ each: true })
+  tags: string[];
 }
 
 export class RecipeDetailDto extends RecipeListDto {
@@ -26,8 +30,4 @@ export class RecipeDetailDto extends RecipeListDto {
   @IsArray()
   @IsString({ each: true })
   tips: string[];
-
-  @IsArray()
-  @IsString({ each: true })
-  tags: string[];
 }

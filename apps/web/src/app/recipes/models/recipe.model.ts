@@ -4,10 +4,10 @@ export interface Recipe {
   description: string;
   imageUrl: string;
   imageAlt: string;
+  tags: string[];
 }
 export interface RecipeDetail extends Recipe {
   ingredients: string[];
   steps: string[];
   tips: string;
-  tags: string[];
 }
