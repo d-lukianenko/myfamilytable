@@ -4,8 +4,14 @@
   </h2>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
-    @for (recipe of recipes(); track recipe.id) {
-    <app-recipe-card [recipe]="recipe" />
+    @if (isLoading()) {
+      @for (n of skeletons; track $index) {
+        <app-recipe-card-loading />
+      }
+    } @else {
+      @for (recipe of recipes(); track recipe.id) {
+        <app-recipe-card [recipe]="recipe" />
+      }
     }
   </div>
 </section>
