@@ -23,7 +23,10 @@ Most recipe websites are cluttered with ads, slow, and frustrating to use.
 
 ## 📸 Preview
 
-<img src="apps/web/docs/preview.jpg" alt="My Family Table mobile preview" width="360"/>
+<p>
+  <img src="apps/web/docs/preview.jpg" width="360" alt="Home page preview"/>
+  <img src="apps/web/docs/preview-detail.jpg" width="360" alt="Recipe detail page preview"/>
+</p>
 
 ---
 
@@ -36,15 +39,14 @@ Most recipe websites are cluttered with ads, slow, and frustrating to use.
 - **Database integration**: Neon Postgres + Prisma (Recipes table with migrations & seeding)
 - **Live recipe cards** rendered from seeded DB via API + Angular mapping layer
 - **Image pipeline**: Cloudinary (public IDs in DB, transformed on the fly for UI)
+- **Recipe Detail Page** → routing, DTOs, and basic template with ingredients, steps, and tips 
 
 ### 🚧 In Progress
-- **Recipe List polish** → loading skeletons, error & empty states, responsive layout  
-- **Recipe Detail Page scaffolding** → routing, DTOs, and basic template  
+- **Recipe List polish** → error & empty states  
 - **Cloudinary integration** → proper alt text, graceful fallbacks/placeholders  
 - **Prisma/DB workflow** → improving migrations & deploy scripts for dev/prod parity  
 
 ### 🔜 Planned
-- **Recipe Detail Page** → full view with ingredients, steps, and kid-friendly tips  
 - **“What’s in my fridge?” search** → enter ingredients, get AI-ranked recipes  
 - **Accessibility & SEO** → focus styles, semantic markup, Angular Universal SSR  
 - **Design polish** → footer, icons, playful but minimal styling
