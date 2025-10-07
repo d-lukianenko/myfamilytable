@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { RecipeListDto } from './dto/recipe.dto';
+import { RecipeDetailDto, RecipeListDto } from './dto/recipe.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { toRecipeDetailDto, toRecipeListDto } from './recipes.mapper';
 
@@ -12,7 +12,7 @@ export class RecipesService {
     return recipes.map((r) => toRecipeListDto(r));
   }
 
-  async findOne(id: string): Promise<RecipeListDto> {
+  async findOne(id: string): Promise<RecipeDetailDto> {
     const recipe = await this.prisma.recipe.findUnique({
       where: { id },
     });
