@@ -33,7 +33,8 @@ export class RecipesStore {
     }
 
     loadById(id: string) {
-        this._detailLoading.set(true); this._detailError.set(null);
+        this._detailLoading.set(true);
+        this._detailError.set(null);
         this.recipesService.fetchRecipeById(id).pipe(
             catchError(err => this.handleErr(err, 'Failed to load recipe', 'detail')),
             finalize(() => this._detailLoading.set(false))
