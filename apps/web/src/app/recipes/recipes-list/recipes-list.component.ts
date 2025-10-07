@@ -16,8 +16,8 @@ export class RecipesListComponent implements OnInit {
   private recipesService = inject(RecipesService);
 
   recipes: Signal<Recipe[]> = this.recipesService.recipes;
-  isLoading = this.recipesService.loading;
-  skeletons = [0,1,2,3,4,5];
+  isLoading: Signal<boolean> = this.recipesService.loading;
+  skeletons: number[] = [0,1,2,3,4,5];
 
   ngOnInit() {
     this.recipesService.fetchRecipes().subscribe();

@@ -5,8 +5,8 @@ import { map, catchError, finalize, tap } from 'rxjs/operators';
 
 import { Recipe } from './models/recipe.model';
 import { environment } from '../../environments/environment';
-import { mapApiRecipe } from './recipe.mappers';
-import { ApiRecipe } from './models/recipe.api';
+import { mapApiRecipe, mapApiRecipeDetail } from './recipe.mappers';
+import { ApiRecipe, ApiRecipeDetail } from './models/recipe.api';
 
 @Injectable({ providedIn: 'root' })
 export class RecipesService {
@@ -20,7 +20,7 @@ export class RecipesService {
 
   private readonly baseUrl = `${environment.apiUrl}/recipes`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   fetchRecipes(): Observable<Recipe[]> {
     this._loading.set(true);
@@ -35,5 +35,9 @@ export class RecipesService {
       }),
       finalize(() => this._loading.set(false))
     );
+  }
+
+  fetchRecipeById(id: string) {
+    return this.http.get<ApiRecipeDetail>(`${this.baseUrl}/${id}`).pipe(map(mapApiRecipeDetail));
   }
 }
