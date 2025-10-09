@@ -17,7 +17,7 @@ Most recipe websites are cluttered with ads, slow, and frustrating to use.
 - **smart** (AI search by ingredients, coming soon).  
 
 ✨ *Built during my return to tech after a long maternity break, inspired by my daughter’s strong character and our kitchen experiments together.*  
-✨ *Every recipe on the site is one I actually cooked for my partner and child — it’s a family project as much as a portfolio piece.*
+✨ *Every recipe on the site is one I actually cooked for my partner and child: it’s a family project as much as a portfolio piece.*
 
 ---
 
