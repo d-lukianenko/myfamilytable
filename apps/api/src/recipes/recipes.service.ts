@@ -8,7 +8,7 @@ export class RecipesService {
   constructor(private prisma: PrismaService) { }
 
   async findAll(): Promise<RecipeListDto[]> {
-    const recipes = await this.prisma.recipe.findMany();
+    const recipes = await this.prisma.recipe.findMany({orderBy: { createdAt: 'desc' }});
     return recipes.map((r) => toRecipeListDto(r));
   }
 
