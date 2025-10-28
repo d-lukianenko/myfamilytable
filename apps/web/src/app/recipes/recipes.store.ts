@@ -1,6 +1,6 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { catchError, finalize, throwError } from 'rxjs';
+import { catchError, EMPTY, finalize, throwError } from 'rxjs';
 import { RecipesService } from './recipes.service';
 import { Recipe, RecipeDetail } from './models/recipe.model';
 
@@ -10,11 +10,11 @@ export class RecipesStore {
 
     private _recipes = signal<Recipe[]>([]);
     private _listLoading = signal(false);
-    private _listError = signal<string | null>(null);
+    private _listError = signal<{ code: number; message: string } | null>(null);
 
     private _selected = signal<RecipeDetail | null>(null);
     private _detailLoading = signal(false);
-    private _detailError = signal<string | null>(null);
+    private _detailError = signal<{ code: number; message: string } | null>(null);
 
     readonly recipes = this._recipes.asReadonly();
     readonly listLoading = this._listLoading.asReadonly();
@@ -36,16 +36,39 @@ export class RecipesStore {
         this._detailLoading.set(true);
         this._detailError.set(null);
         this.recipesService.fetchRecipeById(id).pipe(
-            catchError(err => this.handleErr(err, 'Failed to load recipe', 'detail')),
+            catchError(err => {
+                const code = err.status ?? 0;
+                const message =
+                    code === 404 ? 'Recipe not found' : 'Failed to load recipe';
+                this._detailError.set({ code, message });
+                this._selected.set(null);
+                return EMPTY;
+            }),
             finalize(() => this._detailLoading.set(false))
         ).subscribe(recipe => this._selected.set(recipe));
     }
 
     private handleErr(err: unknown, fallback: string, scope: 'list' | 'detail') {
-        const msg = err instanceof HttpErrorResponse
-            ? (err.error?.message as string) ?? `${fallback} (status ${err.status})`
-            : fallback;
-        scope === 'list' ? this._listError.set(msg) : this._detailError.set(msg);
-        return throwError(() => err instanceof Error ? err : new Error(msg));
+        let code = 0;
+        let message = fallback;
+
+        if (err instanceof HttpErrorResponse) {
+            code = err.status;
+            message =
+                (err.error?.message as string) ??
+                (code === 404 ? 'Recipe not found' : `${fallback} (status ${code})`);
+        }
+
+        const errorObj = { code, message };
+
+        if (scope === 'list') {
+            this._listError.set(errorObj);
+        } else {
+            this._detailError.set(errorObj);
+        }
+
+        return throwError(() =>
+            err instanceof Error ? err : new Error(message)
+        );
     }
 }

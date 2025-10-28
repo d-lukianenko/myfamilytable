@@ -8,12 +8,28 @@ export const routes: Routes = [
   },
   {
     path: 'recipes',
-    pathMatch: 'full',
-    loadComponent: () => import('./home/home.component').then((m) => m.HomeComponent),
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./home/home.component').then((m) => m.HomeComponent),
+      },
+      {
+        path: 'not-found',
+        loadComponent: () =>
+          import('./recipes/recipe-not-found/recipe-not-found.component').then((m) => m.RecipeNotFoundComponent),
+      },
+      {
+        path: ':id',
+        loadComponent: () =>
+          import('./recipes/recipe-detail/recipe-detail.component').then(
+            (m) => m.RecipeDetailComponent
+          ),
+      },
+    ]
   },
   {
-    path: 'recipes/:id',
-    loadComponent: () => import('./recipes/recipe-detail/recipe-detail.component').then(m => m.RecipeDetailComponent),
-  },
-  { path: '**', redirectTo: '' }
+    path: '**',
+    redirectTo: '/'
+  }
 ];
